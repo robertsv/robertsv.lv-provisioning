@@ -72,7 +72,9 @@ Vagrant.configure(2) do |config|
   config.vm.define "robertsv.lv" do |robertsvlv|
     robertsvlv.vm.box = "ubuntu/trusty64"
     robertsvlv.vm.provision :shell, path: "bootstrap.sh"
-    robertsvlv.vm.network :forwarded_port, host: 4567, guest: 80
+    # robertsv.lv nodejs port
+    robertsvlv.vm.network :forwarded_port, host: 4567, guest: 8888
+    robertsvlv.vm.network "private_network", ip: "10.0.0.200"
   end
 
 end

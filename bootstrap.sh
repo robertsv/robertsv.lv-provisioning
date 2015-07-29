@@ -1,8 +1,29 @@
+# install git
+sudo apt-get install -y git=1:1.9.1-1ubuntu0.1
+
 # install MongoDB
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 sudo apt-get update
 sudo apt-get install -y mongodb-org=3.0.4
 
-# install nodejs
+# install Nodejs
 sudo apt-get install -y nodejs=0.10.25~dfsg2-2ubuntu1
+
+# install Nodejs package manager
+sudo apt-get install -y npm=1.3.10~dfsg-1
+
+# create dir for server
+mkdir -p /etc/nodejs_server_robertsv_lv/
+cd /etc/nodejs_server_robertsv_lv/
+
+# install Nodejs packages
+sudo npm install express@4.4.1
+sudo npm install mongojs@0.13.0
+sudo npm install basic-auth-old@0.0.1
+
+# git checkout source
+git clone https://github.com/robertsv/robertsv.lv.git
+
+# create server start script
+echo "nohup nodejs /etc/nodejs_server_robertsv_lv/robertsv.lv/index.js > /etc/nodejs_server_robertsv_lv/robertsv_lv_out.log 2>&1 &" > start_robertsv_lv.sh
