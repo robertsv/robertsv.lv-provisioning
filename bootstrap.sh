@@ -50,5 +50,5 @@ sudo apt-get install tomcat7 -y
 
 sudo bash -c "echo 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> /etc/environment"
 
-# WTF set JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# TODO (RV): FIX set JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 # sudo nano /etc/default/tomcat7
